@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">The Boy The Mole The Fox and The Horse</string>
+    <string name="quote1">\"What is the bravest thing you have ever said?\" asked the boy.\n\"Help,\" said the horse.</string>
+    <string name="quote2">\"What do you want to be when you grow up?\"\n\"Kind,\" said the boy.</string>
+    <string name="quote3">\"What do you think is the biggest waste of time?\"\n\"Comparing yourself to others,\" said the mole.</string>
+    <string name="quote4">\"Do you have any other advice?\" asked the boy.\n\"Do not measure how valuable you are by the way you are treated,\" said the horse.</string>
+    <string name="quote5">\“The greatest illusion,\" said the mole, \"is that life should be perfect.\"</string>
+    <string name="quote6">\“One of our greatest freedoms is how we react to things.\”</string>
+    <string name="quote7">\"Always remember you matter, you are important and you are loved, and you bring to this world things no one else can.\"</string>
+    <string name="quote8">\“We often wait for kindness, but being kind to yourself can start now.\”</string>
+    <string name="quote9">\“We have such a long way to go,\" sighed the boy\n\"Yes, but look how far we have come,\" said the horse</string>
+    <string name="quote10">\“Sometimes I think you believe in me more than I do,\" said the boy\n\"You will catch up,\" said the horse.</string>
+    <string name="show_details">Show details</string>
+</resources>
