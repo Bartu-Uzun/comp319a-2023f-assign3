@@ -13,10 +13,9 @@ import com.example.theboythemolethefoxandthehorse.domain.repository.QuoteReposit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DetailViewModel (
     private val savedStateHandle: SavedStateHandle,
@@ -46,14 +45,18 @@ class DetailViewModel (
         viewModelScope.launch(Dispatchers.IO){
             selectedQuote = quoteRepository.getQuote(dayOfQuote)
 
+            withContext(Dispatchers.Main) {
+                _state.value = state.value.copy(
+                    selectedQuote = selectedQuote,
+                    screenState = MutableStateFlow(DetailScreenState.Success),
+                    comment = selectedQuote?.comment ?: ""
+                )
+            }
+
 
         }
 
-        _state.value = state.value.copy(
-            selectedQuote = selectedQuote,
-            screenState = MutableStateFlow(DetailScreenState.Success),
-            comment = selectedQuote?.comment ?: ""
-        )
+
     }
 
     fun onEvent(event: DetailUIEvent) {

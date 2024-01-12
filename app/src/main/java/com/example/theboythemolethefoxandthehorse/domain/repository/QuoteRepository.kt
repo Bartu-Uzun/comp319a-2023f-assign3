@@ -12,5 +12,7 @@ interface QuoteRepository {
 
     fun getQuote(dayOfQuote: Int): Quote?
 
-    fun getAllQuotes(): List<Quote>
+    suspend fun getAllQuotes(): List<Quote>
+
+    suspend fun populateDatabase(): List<Quote>
 }

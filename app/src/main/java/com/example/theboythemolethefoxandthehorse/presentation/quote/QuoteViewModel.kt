@@ -1,18 +1,15 @@
 package com.example.theboythemolethefoxandthehorse.presentation.quote
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.theboythemolethefoxandthehorse.R
-import com.example.theboythemolethefoxandthehorse.domain.model.Quote
 import com.example.theboythemolethefoxandthehorse.domain.repository.QuoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class QuoteViewModel(
     private val quoteRepository: QuoteRepository
@@ -31,9 +28,12 @@ class QuoteViewModel(
         viewModelScope.launch(Dispatchers.IO){
             val quoteList = quoteRepository.getAllQuotes()
 
-            _state.value = state.value.copy(
-                quoteList = quoteList
-            )
+            withContext(Dispatchers.Main) {
+                _state.value = state.value.copy(
+                    quoteList = quoteList
+                )
+            }
+
         }
     }
     fun onEvent(event: QuoteUIEvent) {

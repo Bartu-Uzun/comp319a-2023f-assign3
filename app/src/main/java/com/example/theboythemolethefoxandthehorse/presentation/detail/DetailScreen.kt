@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Done
@@ -173,9 +175,12 @@ fun SuccessScreen(
             color = MaterialTheme.colorScheme.background
         ) {
 
+            val scrollState = rememberScrollState()
+
             Column (
                 modifier = Modifier
                     .padding(12.dp)
+                    .verticalScroll(state = scrollState)
             ){
 
                 Column (
@@ -294,36 +299,6 @@ fun SuccessScreen(
                             }
                         }
                     }
-
-
-
-
-                    /*
-                    OutlinedTextField(
-                        modifier = Modifier
-                            .onKeyEvent { event: KeyEvent ->
-                                if (event.key == Key.Enter) {
-                                    /* do nothing */
-                                    true
-                                }
-                                false
-                            },
-                        value = usageDescription,
-                        singleLine = true,
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = MaterialTheme.colorScheme.primary,
-                            focusedLabelColor = MaterialTheme.colorScheme.primary,
-                            cursorColor = MaterialTheme.colorScheme.primary,
-                        ),
-                        onValueChange = { usageDescription: String ->
-                            onUsageDescriptionChange(usageDescription)
-                        },
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                    )
-                    */
-
-
-
                 }
             }
 
